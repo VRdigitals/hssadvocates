@@ -22,12 +22,13 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 md:px-10">
-          {/* Left — wordmark */}
-          <a href="#top" className="flex flex-col leading-[1.05] text-paper" aria-label="HSS Advocates & Legal Consultants — home">
-            <span className="font-display text-lg font-medium tracking-[0.08em] md:text-xl">HSS</span>
-            <span className="font-display text-[10px] font-medium tracking-[0.22em] text-paper/60 md:text-[11px]">
-              ADVOCATES
-            </span>
+          {/* Left — logo */}
+          <a href="#top" className="flex items-center" aria-label="HSS Advocates & Legal Consultants — home">
+            <img
+              src="/brand/hss-logo-full.png"
+              alt="Hashim Salem Saif Advocates & Legal Consultants"
+              className="h-9 w-auto md:h-11"
+            />
           </a>
 
           {/* Center — desktop nav */}
@@ -36,7 +37,7 @@ export function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="group relative text-[11px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
+                className="group relative font-display text-[12px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
               >
                 {link.label}
                 <span className="absolute -bottom-2 left-0 h-px w-0 bg-gold transition-all duration-200 group-hover:w-full" />

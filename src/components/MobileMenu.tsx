@@ -38,9 +38,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
     >
       <div className="flex h-full flex-col px-6 pt-6 pb-10">
         <div className="flex items-center justify-between">
-          <span className="font-display text-sm font-medium uppercase tracking-[0.18em] text-paper">
-            HSS <span className="text-paper/60">Advocates</span>
-          </span>
+          <img src="/brand/hss-logo-icon.png" alt="HSS" className="h-9 w-auto" />
           <button
             type="button"
             onClick={onClose}
@@ -61,7 +59,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               href={link.href}
               onClick={onClose}
               tabIndex={open ? 0 : -1}
-              className="border-b border-hairline py-4 font-display text-3xl font-normal uppercase tracking-tight text-paper transition-colors duration-200 hover:text-gold xs:text-4xl"
+              className="border-b border-hairline py-4 font-display text-3xl font-medium uppercase text-paper transition-colors duration-200 hover:text-gold xs:text-4xl"
             >
               {link.label}
             </a>

@@ -1,5 +1,5 @@
 const headlineLine =
-  'block break-words text-[clamp(2.15rem,4.6vw,4.5rem)] leading-[0.96] tracking-tight'
+  'block break-words text-[clamp(2rem,4.1vw,4rem)] leading-[1.04]'
 
 export function HeroContent() {
   return (
@@ -13,7 +13,7 @@ export function HeroContent() {
       </div>
 
       {/* Headline */}
-      <h1 className="mt-6 font-display font-normal uppercase text-paper">
+      <h1 className="mt-6 font-display font-bold uppercase text-paper">
         <span className="block overflow-hidden">
           <span className={`${headlineLine} [animation:reveal-up_0.9s_0.28s_ease-out_both]`}>
             Strategic Counsel.
@@ -38,7 +38,7 @@ export function HeroContent() {
           <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-paper/50">
             Led by
           </p>
-          <p className="mt-1 font-display text-base font-medium tracking-[0.01em] text-paper md:text-lg">
+          <p className="mt-1 font-display text-lg font-semibold tracking-[0.01em] text-paper md:text-xl">
             Hashim Salem Saif
           </p>
           <p className="mt-0.5 text-[11px] uppercase tracking-[0.1em] text-paper/50">
