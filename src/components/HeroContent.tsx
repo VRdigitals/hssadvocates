@@ -21,7 +21,7 @@ export function HeroContent() {
         </span>
         <span className="block overflow-hidden">
           <span className={`${headlineLine} [animation:reveal-up_0.9s_0.42s_ease-out_both]`}>
-            Strong Representation.
+            Strong <span className="text-gold">Representation.</span>
           </span>
         </span>
       </h1>

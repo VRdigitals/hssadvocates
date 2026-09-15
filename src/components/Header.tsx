@@ -68,7 +68,7 @@ export function Header() {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label="Open menu"
-              className="flex h-10 w-10 items-center justify-center text-paper xl:hidden"
+              className="flex h-10 w-10 items-center justify-center text-paper transition-opacity duration-200 hover:opacity-70 xl:hidden"
             >
               <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
                 <path d="M0 1H22" stroke="currentColor" strokeWidth="1.5" />
