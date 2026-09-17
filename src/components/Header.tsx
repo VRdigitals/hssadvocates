@@ -37,7 +37,7 @@ export function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="group relative font-display text-[12px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
+                className="group relative font-hero-sans text-[12px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
               >
                 {link.label}
                 <span className="absolute -bottom-2 left-0 h-px w-0 bg-gold transition-all duration-200 group-hover:w-full" />
@@ -47,7 +47,7 @@ export function Header() {
 
           {/* Right */}
           <div className="flex items-center gap-5 md:gap-7">
-            <div className="hidden items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-paper/85 sm:flex">
+            <div className="hidden items-center gap-2 font-hero-sans text-[11px] font-medium uppercase tracking-[0.14em] text-paper/85 sm:flex">
               <button type="button" className="text-paper transition-opacity hover:opacity-70">
                 EN
               </button>
@@ -57,7 +57,11 @@ export function Header() {
               </button>
             </div>
 
-            <PrimaryButton href="#consultation" className="hidden xl:inline-flex">
+            <PrimaryButton
+              href="#consultation"
+              className="hidden font-hero-sans xl:inline-flex"
+              style={{ height: '44px', paddingLeft: '22px', paddingRight: '22px', fontSize: '11px' }}
+            >
               Request Consultation
             </PrimaryButton>
 

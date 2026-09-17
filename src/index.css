@@ -4,6 +4,13 @@
   --font-display: 'Playfair Display', 'Noto Sans Arabic', 'Times New Roman', serif;
   --font-sans: 'EB Garamond', 'Noto Sans Arabic', 'Times New Roman', serif;
 
+  /* Hero-scoped editorial pairing (header + hero only, per that redesign's
+     brief) — deliberately not swapped into --font-display/--font-sans above,
+     since those are used site-wide and every other section must stay on the
+     existing Playfair/EB Garamond system. */
+  --font-hero-display: 'Cormorant Garamond', 'Noto Sans Arabic', 'Times New Roman', serif;
+  --font-hero-sans: 'Manrope', 'Noto Sans Arabic', sans-serif;
+
   --color-ink: #000000;
   --color-paper: #ffffff;
   --color-gold: #cea344;
@@ -95,6 +102,17 @@ button:focus-visible {
   }
   to {
     transform: scale(1);
+  }
+}
+
+@keyframes portrait-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 8% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0% 0);
   }
 }
 
