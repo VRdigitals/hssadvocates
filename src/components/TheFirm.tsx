@@ -50,52 +50,37 @@ export function TheFirm() {
       aria-label="The Firm"
     >
       {/*
-        THE_FIRM_BACKGROUND
-        No real photograph of the firm's Dubai office exists in this project
-        yet — only the hero's approved image does, and that is scoped to the
-        hero alone. Rather than fabricate office/skyline photography, this is
-        a clearly-labelled placeholder: a dark, abstract gradient environment
-        (no literal skyline, desk or books) that reads as "premium dark
-        environment" without inventing specific imagery. Swap the single
-        <img>/<picture> marked below for a real photo when one is supplied —
-        the layout, overlay and text-contrast treatment need no other changes.
+        THE_FIRM_BACKGROUND — approved production asset (abstract gold/marble
+        texture). It runs bright and busy edge-to-edge with no built-in dark
+        zone of its own, so unlike the hero/Hashim photos this needs a
+        stronger, more even overlay to keep the editorial text readable,
+        rather than just a localized scrim — still never a flat block color
+        over the whole image, the texture stays visible throughout.
       */}
       <div
         className="pointer-events-none absolute inset-0 opacity-0 [transition:opacity_1.1s_ease-out]"
         style={{ opacity: inView ? 1 : 0 }}
         aria-hidden="true"
       >
-        {/* Base dark field */}
-        <div className="absolute inset-0 bg-ink" />
+        <picture>
+          <source srcSet="/hero/the-firm-background.webp" type="image/webp" />
+          <img
+            src="/hero/the-firm-background.jpg"
+            alt=""
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            style={{ filter: 'brightness(0.6) saturate(0.9)' }}
+          />
+        </picture>
 
-        {/* Environment emerging from the right — placeholder for
-            THE_FIRM_BACKGROUND photography */}
-        <div
-          className="absolute inset-y-0 right-0 w-full md:w-[62%]"
-          style={{
-            background:
-              'linear-gradient(115deg, #0a0a0a 0%, #14120d 38%, #1e1912 62%, #241d12 100%)',
-          }}
-        />
-
-        {/* Controlled warm light, upper-right — suggests a window without
-            depicting one */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(48% 55% at 88% 18%, rgba(206,163,68,0.22) 0%, rgba(206,163,68,0) 70%)',
-          }}
-        />
-
-        {/* Left-to-right darkness so the editorial content stays on pure
-            black, with the environment only ever emerging, never a hard
-            split */}
+        {/* Left-to-right darkness so the editorial content stays legible,
+            with the texture only ever emerging, never a hard split */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, #000000 0%, #000000 42%, rgba(0,0,0,0.82) 58%, rgba(0,0,0,0.35) 78%, rgba(0,0,0,0.15) 100%)',
+              'linear-gradient(90deg, #000000 0%, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0.2) 100%)',
           }}
         />
 
