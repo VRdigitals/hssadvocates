@@ -1,5 +1,4 @@
 import { HeroMedia } from './HeroMedia'
-import { HashimPortrait } from './HashimPortrait'
 import { HeroContent } from './HeroContent'
 import { HeroActions } from './HeroActions'
 import { AuthorityStrip } from './AuthorityStrip'
@@ -21,11 +20,10 @@ export function Hero() {
       </span>
 
       <HeroMedia />
-      <HashimPortrait />
 
       <div className="relative flex flex-1 items-end md:items-center">
-        <div className="mx-auto w-full max-w-[1440px] px-6 pb-12 pt-28 md:px-10 md:pb-0 md:pt-20">
-          <div className="md:max-w-[52%] xl:max-w-[50%]">
+        <div className="mx-auto w-full max-w-[1440px] px-6 pb-10 pt-[38vh] md:px-10 md:pb-0 md:pt-20">
+          <div className="md:max-w-[50%] xl:max-w-[46%]">
             <HeroContent />
             <HeroActions />
           </div>

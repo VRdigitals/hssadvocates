@@ -1,5 +1,5 @@
 const headlineLine =
-  'block break-words font-hero-display font-semibold leading-[0.98] tracking-[-0.01em]'
+  'block font-hero-display font-semibold leading-[0.98] tracking-[-0.01em]'
 
 export function HeroContent() {
   return (
@@ -14,8 +14,8 @@ export function HeroContent() {
 
       {/* 4. Headline reveal */}
       <h1
-        className="mt-6 text-paper"
-        style={{ fontSize: 'clamp(64px, 5.5vw, 100px)' }}
+        className="mt-5 text-paper md:mt-6"
+        style={{ fontSize: 'clamp(38px, 7vw, 96px)' }}
       >
         <span className="block overflow-hidden">
           <span className={`${headlineLine} [animation:reveal-up_0.9s_0.65s_ease-out_both]`}>
@@ -30,13 +30,13 @@ export function HeroContent() {
       </h1>
 
       {/* 5. Supporting copy */}
-      <p className="mt-7 max-w-[520px] font-hero-sans text-[17px] leading-[1.55] text-paper/65 opacity-0 [animation:fade-in_0.8s_1s_ease-out_forwards] md:text-[18px]">
+      <p className="mt-5 max-w-[520px] font-hero-sans text-[15px] leading-[1.5] text-paper/65 opacity-0 [animation:fade-in_0.8s_1s_ease-out_forwards] md:mt-7 md:text-[18px]">
         Legal counsel and representation for individuals, entrepreneurs and
         businesses across the UAE.
       </p>
 
       {/* 6. Leadership identifier — a credit line, not a profile card */}
-      <div className="mt-8 flex items-center gap-4 opacity-0 [animation:fade-in_0.8s_1.15s_ease-out_forwards]">
+      <div className="mt-6 flex items-center gap-4 opacity-0 [animation:fade-in_0.8s_1.15s_ease-out_forwards] md:mt-8">
         <span className="h-11 w-px bg-gold/70" aria-hidden="true" />
         <div className="leading-tight">
           <p className="font-hero-sans text-[10px] font-medium uppercase tracking-[0.16em] text-paper/50">
@@ -52,7 +52,7 @@ export function HeroContent() {
       </div>
 
       {/* Editorial detail line */}
-      <div className="mt-6 flex items-center gap-3 opacity-0 [animation:fade-in_0.8s_1.25s_ease-out_forwards]">
+      <div className="mt-6 hidden items-center gap-3 opacity-0 [animation:fade-in_0.8s_1.25s_ease-out_forwards] md:flex">
         <span className="h-px w-8 bg-paper/20" aria-hidden="true" />
         <span className="font-hero-sans text-[10px] uppercase tracking-[0.2em] text-paper/40">
           Law &nbsp;|&nbsp; People &nbsp;|&nbsp; Possibilities
