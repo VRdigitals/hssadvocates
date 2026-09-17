@@ -11,7 +11,4 @@ export const navLinks: NavLink[] = [
   { label: 'Insights', href: '#insights' },
 ]
 
-export const mobileNavLinks: NavLink[] = [
-  ...navLinks,
-  { label: 'Contact', href: '#contact' },
-]
+export const mobileNavLinks: NavLink[] = navLinks
