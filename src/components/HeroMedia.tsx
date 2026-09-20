@@ -1,24 +1,39 @@
+import { useEffect, useState } from 'react'
+
+const YT_VIDEO_ID = 'rFygb2YoQ0A'
+
 /**
  * HSS_HERO_BACKGROUND — institutional, not founder-led.
  *
- * The hero previously used the approved photo of Hashim Salem Saif; per
- * the new content-hierarchy brief, his portrait now appears for the first
- * time in the dedicated "Meet Hashim" section instead — the same image
- * file just moved there (see HashimIntro.tsx). The hero itself represents
- * HSS as an institution, not an individual, so rather than source or
- * fabricate a second photograph, this is a deliberate no-photo treatment:
- * a bright gradient field with a restrained gold geometric mark (echoing
- * mashrabiya lattice work used elsewhere on the site) standing in for
- * "premium UAE architecture" without depicting a specific building.
+ * Background is now the client-supplied YouTube video, embedded via
+ * YouTube's own iframe player (never downloaded/re-hosted — extracting and
+ * self-hosting a YouTube video's file would be a copyright/ToS problem
+ * unless HSS holds explicit rights to redistribute it that way; embedding
+ * is what YouTube's own terms permit for any video the uploader hasn't
+ * disabled embedding on). The iframe is oversized and centered via the
+ * standard "YouTube background video" CSS technique so it crops to cover
+ * the hero like a native <video>, with pointer-events disabled so it never
+ * intercepts clicks meant for the hero's text/buttons.
+ *
+ * The original no-photo gradient + gold lattice treatment is kept as the
+ * permanent base layer: it shows while the iframe loads, and is the whole
+ * background for prefers-reduced-motion users, who never get the video at
+ * all (YouTube's player doesn't honor that preference on its own).
  */
 export function HeroMedia() {
+  const [showVideo, setShowVideo] = useState(false)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    setShowVideo(true)
+  }, [])
+
   return (
-    <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div
         className="absolute inset-0"
         style={{
-          background:
-            'linear-gradient(115deg, #FFFFFF 0%, #F7F5F0 45%, #EEF5F8 100%)',
+          background: 'linear-gradient(115deg, #FFFFFF 0%, #F7F5F0 45%, #EEF5F8 100%)',
         }}
       />
 
@@ -40,29 +55,59 @@ export function HeroMedia() {
         }}
       />
 
-      {/* Restrained geometric lattice mark — architectural, never literal */}
-      <svg
-        className="absolute right-0 top-0 h-full opacity-[0.16] md:right-[4%]"
-        width="46%"
-        viewBox="0 0 400 800"
-        preserveAspectRatio="xMaxYMid slice"
-        fill="none"
-      >
-        <g stroke="var(--color-gold)" strokeWidth="1">
-          {Array.from({ length: 7 }).map((_, row) =>
-            Array.from({ length: 4 }).map((_, col) => {
-              const x = col * 110 - 40
-              const y = row * 120 - 20
-              return (
-                <path
-                  key={`${row}-${col}`}
-                  d={`M${x} ${y + 55} L${x + 55} ${y} L${x + 110} ${y + 55} L${x + 55} ${y + 110} Z`}
-                />
-              )
-            }),
-          )}
-        </g>
-      </svg>
+      {/* Restrained geometric lattice mark — shown until the video takes
+          over, and permanently for reduced-motion users */}
+      {!showVideo && (
+        <svg
+          className="absolute right-0 top-0 h-full opacity-[0.16] transition-opacity duration-700 md:right-[4%]"
+          width="46%"
+          viewBox="0 0 400 800"
+          preserveAspectRatio="xMaxYMid slice"
+          fill="none"
+        >
+          <g stroke="var(--color-gold)" strokeWidth="1">
+            {Array.from({ length: 7 }).map((_, row) =>
+              Array.from({ length: 4 }).map((_, col) => {
+                const x = col * 110 - 40
+                const y = row * 120 - 20
+                return (
+                  <path
+                    key={`${row}-${col}`}
+                    d={`M${x} ${y + 55} L${x + 55} ${y} L${x + 110} ${y + 55} L${x + 55} ${y + 110} Z`}
+                  />
+                )
+              }),
+            )}
+          </g>
+        </svg>
+      )}
+
+      {showVideo && (
+        <iframe
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-1000 [animation:fade-in_1s_0.2s_ease-out_forwards]"
+          style={{
+            width: '100vw',
+            height: '56.25vw' /* 16:9 */,
+            minHeight: '100vh',
+            minWidth: '177.78vh' /* 16:9 */,
+          }}
+          src={`https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YT_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
+          title="HSS Advocates & Legal Consultants — background video"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      )}
+
+      {/* Light veil over the video so hero text stays legible — never a
+          blanket dark scrim, just enough warm-white to hold contrast */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(100deg, rgba(255,255,255,0.7) 0%, rgba(247,245,240,0.5) 45%, rgba(238,245,248,0.35) 100%)',
+        }}
+      />
 
       {/* Bottom merge into the authority strip */}
       <div
