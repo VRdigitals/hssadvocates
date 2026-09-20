@@ -1,60 +1,73 @@
 /**
- * HSS_HERO_BACKGROUND
+ * HSS_HERO_BACKGROUND — institutional, not founder-led.
  *
- * The single, complete hero visual — approved production asset, not a
- * placeholder or a composited layer stack. Contains Hashim Salem Saif,
- * the firm's Dubai office, Burj Khalifa and skyline, and legal
- * environmental detail (scales, books) in one photograph, with a dark
- * negative-space region on the left where the live hero copy sits.
- *
- * object-position keeps that left negative space (and Hashim) anchored
- * in view at every breakpoint rather than a blind center-crop; on
- * mobile it shifts further right so his face/head are never cropped.
+ * The hero previously used the approved photo of Hashim Salem Saif; per
+ * the new content-hierarchy brief, his portrait now appears for the first
+ * time in the dedicated "Meet Hashim" section instead — the same image
+ * file just moved there (see HashimIntro.tsx). The hero itself represents
+ * HSS as an institution, not an individual, so rather than source or
+ * fabricate a second photograph, this is a deliberate no-photo treatment:
+ * a bright gradient field with a restrained gold geometric mark (echoing
+ * mashrabiya lattice work used elsewhere on the site) standing in for
+ * "premium UAE architecture" without depicting a specific building.
  */
 export function HeroMedia() {
   return (
-    <div
-      className="pointer-events-none absolute inset-0 opacity-0 [animation:fade-in_1.1s_ease-out_forwards]"
-      aria-hidden="true"
-    >
-      <picture>
-        <source srcSet="/hero/hss-hero-background.webp" type="image/webp" />
-        <img
-          src="/hero/hss-hero-background.jpg"
-          alt=""
-          className="h-full w-full object-cover object-[58%_10%] sm:object-[55%_12%] md:object-[38%_center]"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
-
-      {/* Localized left-side veil — bright warm-white rather than black, so the
-          text column sits on a soft light panel while Hashim and the skyline
-          stay in natural daylight; this is the section that has to say
-          "this is now a bright website" immediately */}
+    <div className="pointer-events-none absolute inset-0" aria-hidden="true">
       <div
-        className="absolute inset-y-0 left-0 w-full md:w-[58%]"
+        className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(90deg, #F7F5F0 0%, rgba(247,245,240,0.94) 28%, rgba(247,245,240,0.55) 55%, rgba(247,245,240,0) 100%)',
+            'linear-gradient(115deg, #FFFFFF 0%, #F7F5F0 45%, #EEF5F8 100%)',
         }}
       />
 
-      {/* Top scrim — keeps header text legible over the sky before scroll gives
-          the header its own solid backdrop */}
+      {/* Soft warm daylight, upper right */}
       <div
-        className="absolute inset-x-0 top-0 h-32"
+        className="absolute inset-0"
         style={{
-          background: 'linear-gradient(180deg, rgba(247,245,240,0.6) 0%, rgba(247,245,240,0) 100%)',
+          background:
+            'radial-gradient(55% 60% at 82% 12%, rgba(206,163,68,0.14) 0%, rgba(206,163,68,0) 70%)',
         }}
       />
 
-      {/* Bottom merge into the (now light) authority strip */}
+      {/* Pale blue depth, lower right */}
       <div
-        className="absolute inset-x-0 bottom-0 h-24"
+        className="absolute inset-0"
         style={{
-          background: 'linear-gradient(0deg, #F7F5F0 0%, rgba(247,245,240,0) 100%)',
+          background:
+            'radial-gradient(60% 65% at 90% 100%, rgba(197,220,229,0.6) 0%, rgba(197,220,229,0) 70%)',
         }}
+      />
+
+      {/* Restrained geometric lattice mark — architectural, never literal */}
+      <svg
+        className="absolute right-0 top-0 h-full opacity-[0.16] md:right-[4%]"
+        width="46%"
+        viewBox="0 0 400 800"
+        preserveAspectRatio="xMaxYMid slice"
+        fill="none"
+      >
+        <g stroke="var(--color-gold)" strokeWidth="1">
+          {Array.from({ length: 7 }).map((_, row) =>
+            Array.from({ length: 4 }).map((_, col) => {
+              const x = col * 110 - 40
+              const y = row * 120 - 20
+              return (
+                <path
+                  key={`${row}-${col}`}
+                  d={`M${x} ${y + 55} L${x + 55} ${y} L${x + 110} ${y + 55} L${x + 55} ${y + 110} Z`}
+                />
+              )
+            }),
+          )}
+        </g>
+      </svg>
+
+      {/* Bottom merge into the authority strip */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-32"
+        style={{ background: 'linear-gradient(0deg, #F7F5F0 0%, rgba(247,245,240,0) 100%)' }}
       />
     </div>
   )

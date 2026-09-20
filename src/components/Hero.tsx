@@ -21,9 +21,9 @@ export function Hero() {
 
       <HeroMedia />
 
-      <div className="relative flex flex-1 items-end md:items-center">
-        <div className="mx-auto w-full max-w-[1440px] px-6 pb-10 pt-[38vh] md:px-10 md:pb-0 md:pt-20">
-          <div className="md:max-w-[50%] xl:max-w-[46%]">
+      <div className="relative flex flex-1 items-center">
+        <div className="mx-auto w-full max-w-[1440px] px-6 pb-10 pt-28 md:px-10 md:pb-0 md:pt-20">
+          <div className="md:max-w-[640px]">
             <HeroContent />
             <HeroActions />
           </div>

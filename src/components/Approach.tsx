@@ -104,22 +104,22 @@ const GlobeIcon = () => (
 const pillars: Array<{ title: string; text: string; icon: ReactNode }> = [
   {
     title: 'Institutional Insight',
-    text: 'Built from years inside Dubai Customs’ Cases Department and the Dubai International Arbitration Centre, not from the outside looking in.',
+    text: 'Built from years inside Dubai Customs’ Cases Department and the Dubai International Arbitration Centre — a practical understanding of how these institutions assess and resolve matters, not a view from the outside.',
     icon: <InstitutionIcon />,
   },
   {
     title: 'Supreme Court Admission',
-    text: 'Authorised to plead before the Supreme Court and all courts of the UAE.',
+    text: 'Authorised to plead before the Supreme Court and all courts of the UAE, so your matter can be represented at every level it needs to reach.',
     icon: <GavelIcon />,
   },
   {
     title: 'Bilingual Practice',
-    text: 'Matters conducted and argued in Arabic and English.',
+    text: 'Matters are conducted and argued in both Arabic and English, so instructions and proceedings are handled clearly in the language you are most comfortable with.',
     icon: <BilingualIcon />,
   },
   {
     title: 'Property-Market Fluency',
-    text: 'Certified in real estate brokerage, with close, current familiarity with the UAE market.',
+    text: 'Certified in real estate brokerage, with close, current familiarity with the UAE market — useful context whenever a legal matter touches property or transactions.',
     icon: <MarketIcon />,
   },
 ]
@@ -197,14 +197,14 @@ export function Approach() {
               aria-hidden="true"
             />
             <span className="font-hero-sans text-xs font-medium uppercase tracking-[0.16em] text-paper/70 md:text-sm">
-              Our Approach
+              Why HSS
             </span>
           </div>
 
           <h2 className="mt-6 text-[clamp(44px,12vw,62px)] font-hero-display font-semibold uppercase leading-[0.98] text-paper md:text-[clamp(60px,5vw,94px)]">
-            <span className="block">Counsel From</span>
+            <span className="block">Legal Counsel Built</span>
             <span className="block">
-              Inside The <span className="text-gold">System</span>
+              Around Your <span className="text-gold">Matter.</span>
             </span>
           </h2>
         </div>

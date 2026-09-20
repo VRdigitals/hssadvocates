@@ -98,7 +98,7 @@ const timeline = [
   },
 ]
 
-export function HashimProfile() {
+export function HashimTimeline() {
   const sectionRef = useRef<HTMLElement>(null)
   const trackRef = useRef<HTMLOListElement>(null)
   const itemRefs = useRef<(HTMLLIElement | null)[]>([])
@@ -138,17 +138,15 @@ export function HashimProfile() {
   return (
     <section
       ref={sectionRef}
-      id="hashim-salem"
+      id="experience"
       className="relative border-t border-hairline bg-light-blue md:min-h-[155vh]"
-      aria-label="Hashim Salem Saif"
+      aria-label="Professional Journey"
     >
       <div className="relative overflow-hidden md:sticky md:top-[88px] md:h-[calc(100svh-88px)]">
         {/*
           HASHIM_EXPERIENCE_BACKGROUND — the approved production photograph
           (premium UAE architectural interior: dark stone, geometric mashrabiya
           screen, warm evening light, Dubai skyline through the doorway).
-          Overlay is a pale-blue veil rather than the original dark scrim, to
-          match this section's bright, cool-ivory place in the page rhythm.
           Deliberately static — no scroll-driven movement on the background.
         */}
         <div
@@ -171,10 +169,7 @@ export function HashimProfile() {
           {/* Even pale-blue veil across the whole image — the timeline
               column reaches nearly the full width, so contrast can't rely
               on a left-only gradient the way a narrower text column could */}
-          <div
-            className="absolute inset-0"
-            style={{ background: 'rgba(238,245,248,0.62)' }}
-          />
+          <div className="absolute inset-0" style={{ background: 'rgba(238,245,248,0.62)' }} />
 
           {/* Extra strength behind the intro text column specifically */}
           <div
@@ -197,12 +192,13 @@ export function HashimProfile() {
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1440px] items-center px-6 py-[clamp(64px,8vh,100px)] md:px-[clamp(48px,4vw,80px)] md:py-0">
           <div className="grid w-full gap-16 md:grid-cols-[0.82fr_1fr] md:gap-16">
-            {/* Left — introduction. Fades in once, then stays put. */}
+            {/* Left — section heading only; the biography lives in the
+                Meet Hashim section above, this is the deeper journey */}
             <div>
               <div {...reveal(inView, 80, 'flex items-center gap-2.5')}>
                 <span className="h-px w-5 bg-gold" aria-hidden="true" />
                 <span className="font-hero-sans text-xs font-medium uppercase tracking-[0.16em] text-paper/70 md:text-sm">
-                  Hashim Salem Saif
+                  Experience
                 </span>
               </div>
 
@@ -220,30 +216,13 @@ export function HashimProfile() {
                 {...reveal(
                   inView,
                   320,
-                  'mt-7 max-w-[650px] font-hero-sans text-[18px] leading-[1.7] text-paper/72 md:text-[19px]',
+                  'mt-7 max-w-[480px] font-hero-sans text-[17px] leading-[1.65] text-paper/72 md:text-[18px]',
                 )}
               >
-                Hashim Salem Saif is an Emirati advocate who appears before all
-                courts of the UAE. His practice draws on a career spent inside
-                the mechanisms he now argues in front of &mdash; from customs
-                enforcement to arbitration administration &mdash; alongside
-                continued training through the new arbitrators&rsquo; course,
-                the Young Arbitrators Conference, and the IAIS conference on
-                insurance practice and risk.
+                A career built inside the institutions he now argues
+                before &mdash; from customs enforcement to arbitration
+                administration to the property market.
               </p>
-
-              <div
-                {...reveal(
-                  inView,
-                  440,
-                  'mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-hero-sans text-[11px] font-medium uppercase tracking-[0.14em] text-paper/50',
-                )}
-              >
-                <span className="h-px w-8 bg-gold/50" aria-hidden="true" />
-                <span>Arabic / English</span>
-                <span className="h-1 w-1 rounded-full bg-gold/60" aria-hidden="true" />
-                <span>Business Bay, Dubai</span>
-              </div>
             </div>
 
             {/* Right — scroll-linked career timeline */}

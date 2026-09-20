@@ -274,7 +274,7 @@ export function PracticeAreas() {
                 className="font-hero-sans text-xs font-medium uppercase tracking-[0.16em] md:text-sm"
                 style={{ color: 'rgba(16,42,58,0.75)' }}
               >
-                Expertise
+                Legal Services
               </span>
             </div>
 
@@ -295,8 +295,9 @@ export function PracticeAreas() {
               transition: 'opacity 700ms ease-out 120ms, transform 700ms ease-out 120ms',
             }}
           >
-            Focused legal expertise across key areas of UAE law, delivered
-            with depth, precision and a results-driven approach.
+            HSS provides focused legal advice and representation across key
+            areas of UAE law, combining practical guidance with direct
+            advocate involvement.
           </p>
         </div>
 
