@@ -139,16 +139,16 @@ export function HashimProfile() {
     <section
       ref={sectionRef}
       id="hashim-salem"
-      className="relative border-t border-hairline bg-ink md:min-h-[155vh]"
+      className="relative border-t border-hairline bg-light-blue md:min-h-[155vh]"
       aria-label="Hashim Salem Saif"
     >
       <div className="relative overflow-hidden md:sticky md:top-[88px] md:h-[calc(100svh-88px)]">
         {/*
           HASHIM_EXPERIENCE_BACKGROUND — the approved production photograph
           (premium UAE architectural interior: dark stone, geometric mashrabiya
-          screen, warm evening light, Dubai skyline through the doorway). Its
-          own left half is already deep negative space, so the overlay below
-          only needs to reinforce it, not manufacture darkness from nothing.
+          screen, warm evening light, Dubai skyline through the doorway).
+          Overlay is a pale-blue veil rather than the original dark scrim, to
+          match this section's bright, cool-ivory place in the page rhythm.
           Deliberately static — no scroll-driven movement on the background.
         */}
         <div
@@ -164,26 +164,34 @@ export function HashimProfile() {
               className="h-full w-full object-cover object-[15%_center] md:object-[center_center]"
               loading="lazy"
               decoding="async"
+              style={{ filter: 'brightness(1.05) saturate(0.85)' }}
             />
           </picture>
 
-          {/* Very subtle localized darkening behind the text column only —
-              the photo is already dark there, this just guarantees contrast */}
+          {/* Even pale-blue veil across the whole image — the timeline
+              column reaches nearly the full width, so contrast can't rely
+              on a left-only gradient the way a narrower text column could */}
           <div
-            className="absolute inset-y-0 left-0 w-full md:w-[54%]"
+            className="absolute inset-0"
+            style={{ background: 'rgba(238,245,248,0.62)' }}
+          />
+
+          {/* Extra strength behind the intro text column specifically */}
+          <div
+            className="absolute inset-y-0 left-0 w-full md:w-[50%]"
             style={{
               background:
-                'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 100%)',
+                'linear-gradient(90deg, rgba(238,245,248,0.65) 0%, rgba(238,245,248,0.45) 60%, rgba(238,245,248,0) 100%)',
             }}
           />
 
           <div
             className="absolute inset-x-0 top-0 h-20"
-            style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%)' }}
+            style={{ background: 'linear-gradient(180deg, rgba(238,245,248,0.7) 0%, rgba(238,245,248,0) 100%)' }}
           />
           <div
             className="absolute inset-x-0 bottom-0 h-20"
-            style={{ background: 'linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)' }}
+            style={{ background: 'linear-gradient(0deg, rgba(238,245,248,0.75) 0%, rgba(238,245,248,0) 100%)' }}
           />
         </div>
 
@@ -240,9 +248,9 @@ export function HashimProfile() {
 
             {/* Right — scroll-linked career timeline */}
             <ol ref={trackRef} className="relative flex flex-col pl-8">
-              {/* Base track — always faintly visible, full height */}
+              {/* Base track — pale blue-gray, always visible, full height */}
               <span
-                className="absolute left-[3px] top-2 bottom-2 w-px bg-gold/15"
+                className="absolute left-[3px] top-2 bottom-2 w-px bg-blue-border"
                 aria-hidden="true"
               />
               {/* Active track — grows with scroll progress */}
@@ -274,14 +282,14 @@ export function HashimProfile() {
                     className={`relative py-6 md:py-7 ${index !== 0 ? 'border-t border-hairline' : ''}`}
                   >
                     <span
-                      className="absolute -left-8 top-[30px] h-3.5 w-3.5 -translate-y-1/2 rounded-full bg-ink"
+                      className="absolute -left-8 top-[30px] h-3.5 w-3.5 -translate-y-1/2 rounded-full bg-light-blue"
                       aria-hidden="true"
                     />
                     <span
                       className="absolute -left-8 top-[30px] h-2 w-2 -translate-x-[-3px] -translate-y-1/2 rounded-full border transition-all duration-500 ease-out"
                       style={{
-                        backgroundColor: nodeActive ? 'var(--color-gold)' : 'transparent',
-                        borderColor: nodeActive ? 'var(--color-gold)' : 'rgba(206,163,68,0.35)',
+                        backgroundColor: nodeActive ? 'var(--color-gold)' : '#ffffff',
+                        borderColor: nodeActive ? 'var(--color-gold)' : 'var(--color-blue-border)',
                         transform: `scale(${nodeActive ? 1 : 0.75})`,
                       }}
                       aria-hidden="true"

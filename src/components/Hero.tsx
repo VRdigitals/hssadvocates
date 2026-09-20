@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-warm-white"
       aria-label="HSS Advocates & Legal Consultants — introduction"
     >
       {/* Oversized background typography — depth, never a distraction */}

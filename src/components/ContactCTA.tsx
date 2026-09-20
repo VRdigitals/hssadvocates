@@ -67,12 +67,13 @@ export function ContactCTA() {
     <section
       ref={ref}
       id="consultation"
-      className="relative overflow-hidden border-t border-hairline bg-ink"
+      className="relative overflow-hidden border-t border-white/10 bg-ink"
       aria-label="Request a consultation"
     >
-      {/* Massive, near-invisible architectural mark — atmosphere, not a headline */}
+      {/* Massive, near-invisible architectural mark — pale blue rather than
+          black-on-black, since the surface underneath it is navy, not black */}
       <span
-        className="pointer-events-none absolute -bottom-[10vw] -left-[3vw] select-none font-hero-display font-medium leading-none text-paper transition-[opacity,transform] duration-[1400ms] ease-out"
+        className="pointer-events-none absolute -bottom-[10vw] -left-[3vw] select-none font-hero-display font-medium leading-none text-blue-border transition-[opacity,transform] duration-[1400ms] ease-out"
         style={{
           fontSize: '30vw',
           opacity: inView ? 0.022 : 0.008,
@@ -97,13 +98,13 @@ export function ContactCTA() {
                 }}
                 aria-hidden="true"
               />
-              <span className="font-hero-sans text-xs font-medium uppercase tracking-[0.16em] text-paper/70 md:text-sm">
+              <span className="font-hero-sans text-xs font-medium uppercase tracking-[0.16em] text-white/70 md:text-sm">
                 Speak With HSS Advocates
               </span>
             </div>
 
             <h2
-              className={`mt-6 text-[clamp(48px,14vw,70px)] font-hero-display font-semibold uppercase leading-[0.95] text-paper md:text-[clamp(70px,5.5vw,108px)] ${reveal(inView, 160).className}`}
+              className={`mt-6 text-[clamp(48px,14vw,70px)] font-hero-display font-semibold uppercase leading-[0.95] text-white md:text-[clamp(70px,5.5vw,108px)] ${reveal(inView, 160).className}`}
               style={reveal(inView, 160).style}
             >
               <span className="block">Request A</span>
@@ -114,7 +115,7 @@ export function ContactCTA() {
               {...reveal(
                 inView,
                 280,
-                'mt-6 max-w-[480px] font-hero-sans text-[17px] leading-[1.65] text-paper/65 md:text-[18px]',
+                'mt-6 max-w-[480px] font-hero-sans text-[17px] leading-[1.65] text-white/65 md:text-[18px]',
               )}
             >
               Discuss your matter directly with HSS Advocates.
@@ -131,7 +132,7 @@ export function ContactCTA() {
                 <span className="mt-0.5 text-gold">
                   <LocationIcon />
                 </span>
-                <p className="font-hero-sans text-[15px] leading-[1.5] text-paper/70">
+                <p className="font-hero-sans text-[15px] leading-[1.5] text-white/70">
                   Office 608, Park Lane Tower
                   <br />
                   Business Bay, Dubai, UAE
@@ -141,7 +142,7 @@ export function ContactCTA() {
                 <span className="mt-0.5 text-gold">
                   <GlobeIcon />
                 </span>
-                <p className="font-hero-sans text-[15px] leading-[1.5] text-paper/70">
+                <p className="font-hero-sans text-[15px] leading-[1.5] text-white/70">
                   Arabic / English
                 </p>
               </div>

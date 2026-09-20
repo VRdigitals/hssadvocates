@@ -23,7 +23,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:py-8">
         <a href="#top" className="flex items-center gap-3">
           <img src="/brand/hss-logo-icon.png" alt="" className="h-7 w-auto opacity-90" />
-          <span className="font-hero-sans text-[11px] font-medium uppercase leading-tight tracking-[0.12em] text-paper/60">
+          <span className="font-hero-sans text-[11px] font-medium uppercase leading-tight tracking-[0.12em] text-white/60">
             HSS Advocates
             <br />
             &amp; Legal Consultants
@@ -36,7 +36,7 @@ export function Footer() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="group relative font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-paper/50 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+                  className="group relative font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white/50 transition-colors duration-300 hover:text-white focus-visible:text-white"
                 >
                   {link.label}
                   <span
@@ -51,18 +51,18 @@ export function Footer() {
 
         <div className="flex flex-col gap-3 lg:items-end">
           <div className="flex items-center gap-4">
-            <span className="font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-paper/50">
+            <span className="font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white/50">
               EN / العربية
             </span>
             <a
               href="#top"
               onClick={scrollToTop}
-              className="font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-paper/50 transition-colors duration-300 hover:text-gold focus-visible:text-gold"
+              className="font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white/50 transition-colors duration-300 hover:text-gold focus-visible:text-gold"
             >
               Back To Top &uarr;
             </a>
           </div>
-          <p className="font-hero-sans text-[10px] uppercase tracking-[0.1em] text-paper/35">
+          <p className="font-hero-sans text-[10px] uppercase tracking-[0.1em] text-white/35">
             &copy; {new Date().getFullYear()} HSS Advocates &amp; Legal Consultants. All rights reserved.
           </p>
         </div>

@@ -44,7 +44,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             onClick={onClose}
             aria-label="Close menu"
             tabIndex={open ? 0 : -1}
-            className="flex h-11 w-11 items-center justify-center text-paper"
+            className="flex h-11 w-11 items-center justify-center text-white"
           >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
               <path d="M2 2L20 20M20 2L2 20" stroke="currentColor" strokeWidth="1.5" />
@@ -59,7 +59,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               href={link.href}
               onClick={onClose}
               tabIndex={open ? 0 : -1}
-              className="border-b border-hairline py-4 font-display text-3xl font-medium uppercase text-paper transition-colors duration-200 hover:text-gold xs:text-4xl"
+              className="border-b border-white/12 py-4 font-display text-3xl font-medium uppercase text-white transition-colors duration-200 hover:text-gold xs:text-4xl"
             >
               {link.label}
             </a>
@@ -67,11 +67,11 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         </nav>
 
         <div className="mt-10 flex flex-col gap-6">
-          <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.14em] text-paper/70">
-            <button type="button" tabIndex={open ? 0 : -1} className="text-paper">
+          <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.14em] text-white/70">
+            <button type="button" tabIndex={open ? 0 : -1} className="text-white">
               EN
             </button>
-            <span className="text-paper/30">/</span>
+            <span className="text-white/30">/</span>
             <button type="button" tabIndex={open ? 0 : -1}>
               العربية
             </button>

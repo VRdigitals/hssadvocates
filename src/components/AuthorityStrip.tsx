@@ -66,11 +66,8 @@ const items: Item[] = [
 export function AuthorityStrip() {
   return (
     <div
-      className="relative z-10 border-t"
-      style={{
-        borderColor: 'rgba(138,106,36,0.45)',
-        background: 'linear-gradient(180deg, #0a0a0a 0%, #060606 100%)',
-      }}
+      className="relative z-10 border-t bg-warm-white"
+      style={{ borderColor: 'rgba(206,163,68,0.35)' }}
     >
       <ul className="mx-auto grid max-w-[1440px] grid-cols-2 md:grid-cols-4">
         {items.map((item, index) => (

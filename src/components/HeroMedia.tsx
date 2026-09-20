@@ -28,14 +28,15 @@ export function HeroMedia() {
         />
       </picture>
 
-      {/* Localized left-side overlay only — the image already carries its own
-          darkness, so this is concentrated behind the text column and fades
-          out before reaching Hashim, not a blanket scrim over the whole hero */}
+      {/* Localized left-side veil — bright warm-white rather than black, so the
+          text column sits on a soft light panel while Hashim and the skyline
+          stay in natural daylight; this is the section that has to say
+          "this is now a bright website" immediately */}
       <div
         className="absolute inset-y-0 left-0 w-full md:w-[58%]"
         style={{
           background:
-            'linear-gradient(90deg, #000000 0%, rgba(0,0,0,0.86) 28%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 100%)',
+            'linear-gradient(90deg, #F7F5F0 0%, rgba(247,245,240,0.94) 28%, rgba(247,245,240,0.55) 55%, rgba(247,245,240,0) 100%)',
         }}
       />
 
@@ -44,15 +45,15 @@ export function HeroMedia() {
       <div
         className="absolute inset-x-0 top-0 h-32"
         style={{
-          background: 'linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)',
+          background: 'linear-gradient(180deg, rgba(247,245,240,0.6) 0%, rgba(247,245,240,0) 100%)',
         }}
       />
 
-      {/* Bottom merge into the authority strip */}
+      {/* Bottom merge into the (now light) authority strip */}
       <div
         className="absolute inset-x-0 bottom-0 h-24"
         style={{
-          background: 'linear-gradient(0deg, #000000 0%, rgba(0,0,0,0) 100%)',
+          background: 'linear-gradient(0deg, #F7F5F0 0%, rgba(247,245,240,0) 100%)',
         }}
       />
     </div>

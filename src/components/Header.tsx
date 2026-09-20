@@ -18,17 +18,24 @@ export function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-40 h-[76px] transition-colors duration-500 md:h-[88px] ${
-          scrolled ? 'border-b border-hairline bg-ink/94 backdrop-blur-[2px]' : 'border-b border-transparent bg-transparent'
+          scrolled
+            ? 'border-b border-hairline bg-warm-white/92 backdrop-blur-[2px]'
+            : 'border-b border-transparent bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 md:px-10">
           {/* Left — logo */}
-          <a href="#top" className="flex items-center" aria-label="HSS Advocates & Legal Consultants — home">
-            <img
-              src="/brand/hss-logo-full.png"
-              alt="Hashim Salem Saif Advocates & Legal Consultants"
-              className="h-9 w-auto md:h-11"
-            />
+          <a
+            href="#top"
+            className="flex items-center gap-2.5"
+            aria-label="HSS Advocates & Legal Consultants — home"
+          >
+            <img src="/brand/hss-logo-icon.png" alt="" className="h-8 w-auto md:h-10" />
+            <span className="font-hero-sans text-[11px] font-medium uppercase leading-tight tracking-[0.1em] text-paper/80 md:text-xs">
+              Hashim Salem Saif
+              <br />
+              Advocates &amp; Legal Consultants
+            </span>
           </a>
 
           {/* Center — desktop nav */}

@@ -46,16 +46,16 @@ export function TheFirm() {
     <section
       ref={ref}
       id="the-firm"
-      className="relative overflow-hidden border-t border-hairline bg-ink"
+      className="relative overflow-hidden border-t border-hairline bg-ivory"
       aria-label="The Firm"
     >
       {/*
         THE_FIRM_BACKGROUND — approved production asset (abstract gold/marble
-        texture). It runs bright and busy edge-to-edge with no built-in dark
-        zone of its own, so unlike the hero/Hashim photos this needs a
-        stronger, more even overlay to keep the editorial text readable,
-        rather than just a localized scrim — still never a flat block color
-        over the whole image, the texture stays visible throughout.
+        texture). It runs bright and busy edge-to-edge with no built-in light
+        zone of its own, so this needs a stronger, more even ivory veil to
+        keep the editorial text readable, rather than just a localized
+        scrim — the texture still stays visible throughout, never flattened
+        to a solid color.
       */}
       <div
         className="pointer-events-none absolute inset-0 opacity-0 [transition:opacity_1.1s_ease-out]"
@@ -70,28 +70,28 @@ export function TheFirm() {
             className="h-full w-full object-cover"
             loading="lazy"
             decoding="async"
-            style={{ filter: 'brightness(0.6) saturate(0.9)' }}
+            style={{ filter: 'brightness(1.08) saturate(0.85)' }}
           />
         </picture>
 
-        {/* Left-to-right darkness so the editorial content stays legible,
+        {/* Left-to-right ivory veil so the editorial content stays legible,
             with the texture only ever emerging, never a hard split */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, #000000 0%, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0.2) 100%)',
+              'linear-gradient(90deg, #FAF9F6 0%, rgba(250,249,246,0.9) 40%, rgba(250,249,246,0.58) 62%, rgba(250,249,246,0.3) 82%, rgba(250,249,246,0.18) 100%)',
           }}
         />
 
-        {/* Top and bottom merge into the section's own black borders */}
+        {/* Top and bottom merge into the section's own ivory borders */}
         <div
           className="absolute inset-x-0 top-0 h-24"
-          style={{ background: 'linear-gradient(180deg, #000000 0%, rgba(0,0,0,0) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, #FAF9F6 0%, rgba(250,249,246,0) 100%)' }}
         />
         <div
           className="absolute inset-x-0 bottom-0 h-24"
-          style={{ background: 'linear-gradient(0deg, #000000 0%, rgba(0,0,0,0) 100%)' }}
+          style={{ background: 'linear-gradient(0deg, #FAF9F6 0%, rgba(250,249,246,0) 100%)' }}
         />
       </div>
 

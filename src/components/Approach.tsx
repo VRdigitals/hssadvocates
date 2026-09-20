@@ -138,16 +138,14 @@ export function Approach() {
     <section
       ref={ref}
       id="our-approach"
-      className="relative overflow-hidden border-t border-hairline"
+      className="relative overflow-hidden border-t border-hairline bg-light-blue"
       aria-label="Our Approach"
     >
       {/*
-        Deliberately no photograph here — the previous three sections already
-        carry the site's imagery (skyline, architecture, ivory interior), and
-        this one is meant to read as calmer and more institutional than
-        either the Hashim timeline or Areas of Practice. Background is the
-        approved production photo, darkened evenly (it has no dark zone of
-        its own) so the editorial content stays fully legible.
+        Same handshake photo the client specified (kept, as-is, per that
+        request), now carrying a light-blue veil instead of the original
+        dark scrim so this section reads as the calm, cool-ivory/pale-blue
+        institutional moment in the page's bright rhythm.
       */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <picture>
@@ -158,21 +156,21 @@ export function Approach() {
             className="h-full w-full object-cover"
             loading="lazy"
             decoding="async"
-            style={{ filter: 'brightness(0.42) saturate(0.85)' }}
+            style={{ filter: 'brightness(1.05) saturate(0.8)' }}
           />
         </picture>
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.6) 100%)',
+              'linear-gradient(180deg, rgba(238,245,248,0.82) 0%, rgba(238,245,248,0.9) 55%, rgba(238,245,248,0.85) 100%)',
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(55% 60% at 88% 8%, rgba(206,163,68,0.12) 0%, rgba(206,163,68,0) 70%)',
+              'radial-gradient(55% 60% at 88% 8%, rgba(206,163,68,0.1) 0%, rgba(206,163,68,0) 70%)',
           }}
         />
         <span
