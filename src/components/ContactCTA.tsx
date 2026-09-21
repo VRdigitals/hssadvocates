@@ -60,6 +60,15 @@ const GlobeIcon = () => (
   </svg>
 )
 
+const PhoneIcon = () => (
+  <svg {...iconProps}>
+    <path
+      d="M5.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 4 5.6 1.5 1.5 0 0 1 5.5 4Z"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
 export function ContactCTA() {
   const [ref, inView] = useInView<HTMLElement>()
 
@@ -133,10 +142,21 @@ export function ContactCTA() {
                   <LocationIcon />
                 </span>
                 <p className="font-hero-sans text-[15px] leading-[1.5] text-white/70">
-                  Office 608, Park Lane Tower
+                  Al Fattan Plaza Building, Office 907
                   <br />
-                  Business Bay, Dubai, UAE
+                  Al Garhoud Airport Road, Dubai, UAE
                 </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 text-gold">
+                  <PhoneIcon />
+                </span>
+                <a
+                  href="tel:+97143331229"
+                  className="font-hero-sans text-[15px] leading-[1.5] text-white/70 transition-colors duration-200 hover:text-gold"
+                >
+                  +971 4 333 1229
+                </a>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 text-gold">

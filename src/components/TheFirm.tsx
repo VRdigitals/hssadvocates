@@ -127,8 +127,7 @@ export function TheFirm() {
               led by Hashim Salem Saif, an Emirati advocate admitted to plead
               before the Supreme Court and all courts of the UAE. The firm is
               registered with the UAE Ministry of Justice and operates from
-              Business Bay, at the centre of Dubai&rsquo;s commercial
-              district.
+              Al Fattan Plaza on Al Garhoud Airport Road, Dubai.
             </p>
             <span className="mt-6 block h-px w-10 bg-gold/50" aria-hidden="true" />
           </div>
