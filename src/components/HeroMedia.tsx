@@ -84,18 +84,37 @@ export function HeroMedia() {
 
       {showVideo && (
         <iframe
+          /* Oversized well beyond a plain cover-fit (130% on every axis) so
+             the iframe's own top-left corner — where YouTube renders its
+             video-title overlay, which its embed params cannot suppress —
+             sits reliably outside the visible hero area on every viewport
+             ratio, not just the common ones. */
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-1000 [animation:fade-in_1s_0.2s_ease-out_forwards]"
           style={{
-            width: '100vw',
-            height: '56.25vw' /* 16:9 */,
-            minHeight: '100vh',
-            minWidth: '177.78vh' /* 16:9 */,
+            width: '130vw',
+            height: '73.125vw' /* 16:9 */,
+            minHeight: '130vh',
+            minWidth: '231.1vh' /* 16:9 */,
           }}
-          src={`https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YT_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
+          src={`https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YT_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0`}
           title="HSS Advocates & Legal Consultants — background video"
           frameBorder="0"
           allow="autoplay; encrypted-media"
           referrerPolicy="strict-origin-when-cross-origin"
+        />
+      )}
+
+      {/* Belt-and-suspenders cover for the video's title-overlay corner —
+          blends into the section's own warm-white/gold veil rather than
+          reading as a patch */}
+      {showVideo && (
+        <div
+          className="absolute left-0 top-0 h-24 w-64 opacity-0 [animation:fade-in_0.6s_0.4s_ease-out_forwards] md:h-28 md:w-80"
+          style={{
+            background:
+              'radial-gradient(100% 100% at 0% 0%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0) 100%)',
+          }}
+          aria-hidden="true"
         />
       )}
 

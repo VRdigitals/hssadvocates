@@ -66,7 +66,7 @@ const items: Item[] = [
 export function AuthorityStrip() {
   return (
     <div
-      className="relative z-10 border-t bg-warm-white"
+      className="relative z-10 border-t bg-warm-white opacity-0 [animation:fade-in_0.8s_3.5s_ease-out_forwards]"
       style={{ borderColor: 'rgba(206,163,68,0.35)' }}
     >
       <ul className="mx-auto grid max-w-[1440px] grid-cols-2 md:grid-cols-4">

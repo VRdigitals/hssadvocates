@@ -20,7 +20,7 @@ export function PageShell({ crumbs, children }: PageShellProps) {
           aria-label="Breadcrumb"
           className="border-b border-hairline bg-warm-white px-6 pb-4 pt-[92px] md:px-10 md:pt-[104px]"
         >
-          <ol className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-2 gap-y-1 font-hero-sans text-[11px] font-medium uppercase tracking-[0.1em] text-paper/50">
+          <ol className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-2 gap-y-1 font-hero-sans text-[11px] font-medium uppercase tracking-[0.1em] text-paper/50 opacity-0 [animation:fade-in_0.6s_0.1s_ease-out_forwards]">
             {crumbs.map((crumb, index) => (
               <li key={crumb.label} className="flex items-center gap-2">
                 {index > 0 && <span aria-hidden="true">/</span>}

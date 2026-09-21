@@ -5,7 +5,7 @@ const heroButtonStyle = { height: '58px', paddingLeft: '30px', paddingRight: '30
 
 export function HeroActions() {
   return (
-    <div className="relative z-10 mt-10 flex flex-col gap-4 opacity-0 [animation:fade-in_0.8s_1.4s_ease-out_forwards] sm:flex-row sm:items-center sm:gap-5">
+    <div className="relative z-10 mt-10 flex flex-col gap-4 opacity-0 [animation:fade-in_0.8s_3.3s_ease-out_forwards] sm:flex-row sm:items-center sm:gap-5">
       <PrimaryButton
         href="#consultation"
         className="group w-full font-hero-sans sm:w-auto"
