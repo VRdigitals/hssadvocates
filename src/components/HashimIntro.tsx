@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function useInView<T extends HTMLElement>() {
   const ref = useRef<T>(null)
@@ -127,13 +128,13 @@ export function HashimIntro() {
               ))}
             </ul>
 
-            <a
+            <Link
               {...reveal(
                 inView,
                 540,
                 'group mt-9 inline-flex items-center gap-2.5 font-hero-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-gold',
               )}
-              href="#experience"
+              to="/experience"
             >
               Discover Hashim&rsquo;s Experience
               <span
@@ -142,7 +143,7 @@ export function HashimIntro() {
               >
                 &rarr;
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

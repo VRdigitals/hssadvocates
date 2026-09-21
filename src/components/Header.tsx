@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { PrimaryButton } from './PrimaryButton'
 import { MobileMenu } from './MobileMenu'
 import { navLinks } from './navLinks'
@@ -25,8 +26,8 @@ export function Header() {
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 md:px-10">
           {/* Left — logo */}
-          <a
-            href="#top"
+          <Link
+            to="/"
             className="flex items-center gap-2.5"
             aria-label="HSS Advocates & Legal Consultants — home"
           >
@@ -36,19 +37,19 @@ export function Header() {
               <br />
               Advocates &amp; Legal Consultants
             </span>
-          </a>
+          </Link>
 
           {/* Center — desktop nav */}
           <nav className="hidden xl:flex xl:items-center xl:gap-8" aria-label="Primary">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className="group relative font-hero-sans text-[12px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
               >
                 {link.label}
                 <span className="absolute -bottom-2 left-0 h-px w-0 bg-gold transition-all duration-200 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
           </nav>
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { navLinks } from './navLinks'
 
 export function Footer() {
@@ -21,21 +22,21 @@ export function Footer() {
       />
 
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:py-8">
-        <a href="#top" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src="/brand/hss-logo-icon.png" alt="" className="h-7 w-auto opacity-90" />
           <span className="font-hero-sans text-[11px] font-medium uppercase leading-tight tracking-[0.12em] text-white/60">
             HSS Advocates
             <br />
             &amp; Legal Consultants
           </span>
-        </a>
+        </Link>
 
         <nav aria-label="Footer">
           <ul className="flex flex-wrap items-center gap-x-7 gap-y-3">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
+                <Link
+                  to={link.href}
                   className="group relative font-hero-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white/50 transition-colors duration-300 hover:text-white focus-visible:text-white"
                 >
                   {link.label}
@@ -43,7 +44,7 @@ export function Footer() {
                     className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-[width] duration-300 ease-out group-hover:w-full group-focus-visible:w-full"
                     aria-hidden="true"
                   />
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

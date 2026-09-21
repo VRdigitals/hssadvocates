@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { PrimaryButton } from './PrimaryButton'
 import { mobileNavLinks } from './navLinks'
 
@@ -54,15 +55,15 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         <nav className="mt-16 flex flex-1 flex-col justify-center gap-2" aria-label="Primary">
           {mobileNavLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               onClick={onClose}
               tabIndex={open ? 0 : -1}
               className="border-b border-white/12 py-4 font-display text-3xl font-medium uppercase text-white transition-colors duration-200 hover:text-gold xs:text-4xl"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

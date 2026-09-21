@@ -4,11 +4,11 @@ export type NavLink = {
 }
 
 export const navLinks: NavLink[] = [
-  { label: 'Services', href: '#expertise' },
-  { label: 'Meet Hashim', href: '#hashim-salem' },
-  { label: 'Our Approach', href: '#our-approach' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'How We Work', href: '#how-we-work' },
+  { label: 'Services', href: '/services' },
+  { label: 'Meet Hashim', href: '/meet-hashim' },
+  { label: 'Our Approach', href: '/our-approach' },
+  { label: 'Experience', href: '/experience' },
+  { label: 'How We Work', href: '/how-we-work' },
 ]
 
 export const mobileNavLinks: NavLink[] = navLinks

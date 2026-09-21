@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
+import { services } from '../data/services'
 
 function useInView<T extends HTMLElement>() {
   const ref = useRef<T>(null)
@@ -29,91 +31,13 @@ function useInView<T extends HTMLElement>() {
   return [ref, inView] as const
 }
 
-const iconProps = {
-  width: 22,
-  height: 22,
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.25,
-  'aria-hidden': true as const,
-}
-
-const RealEstateIcon = () => (
-  <svg {...iconProps}>
-    <path d="M4 21V9l8-5 8 5v12" strokeLinejoin="round" />
-    <path d="M9 21v-7h6v7" strokeLinejoin="round" />
-    <path d="M4 21h16" strokeLinecap="round" />
-  </svg>
-)
-
-const ArbitrationIcon = () => (
-  <svg {...iconProps}>
-    <path d="M12 3v18" strokeLinecap="round" />
-    <path d="M5 7h14" strokeLinecap="round" />
-    <path d="M5 7 2.5 12.5a2.5 2.5 0 0 0 5 0L5 7Z" strokeLinejoin="round" />
-    <path d="M19 7l-2.5 5.5a2.5 2.5 0 0 0 5 0L19 7Z" strokeLinejoin="round" />
-    <path d="M8.5 21h7" strokeLinecap="round" />
-  </svg>
-)
-
-const CustomsIcon = () => (
-  <svg {...iconProps}>
-    <path d="M3 18h4l1.5-3h7L17 18h4" strokeLinejoin="round" strokeLinecap="round" />
-    <path d="M4.5 18v-5.5L12 8l7.5 4.5V18" strokeLinejoin="round" />
-    <path d="M9 18v-4h6v4" strokeLinejoin="round" />
-  </svg>
-)
-
-const InsuranceIcon = () => (
-  <svg {...iconProps}>
-    <path d="M12 3.5 5 6v6c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-2.5Z" strokeLinejoin="round" />
-    <path d="m9.25 12 1.9 1.9 3.6-3.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-const CourtIcon = () => (
-  <svg {...iconProps}>
-    <path d="M12 3 4 7v1h16V7l-8-4Z" strokeLinejoin="round" />
-    <path d="M5 10v7M9 10v7M15 10v7M19 10v7" strokeLinecap="round" />
-    <path d="M3.5 20.5h17" strokeLinecap="round" />
-  </svg>
-)
-
-const areas: Array<{ title: string; text: string; icon: ReactNode }> = [
-  {
-    title: 'Real Estate & Property',
-    text: 'Property transactions, disputes and regulatory matters across the UAE, backed by a certificate in real estate brokerage and close familiarity with the local market.',
-    icon: <RealEstateIcon />,
-  },
-  {
-    title: 'Arbitration & Dispute Resolution',
-    text: 'Arbitration proceedings informed by first-hand experience as a case manager at the Dubai International Arbitration Centre (DIAC).',
-    icon: <ArbitrationIcon />,
-  },
-  {
-    title: 'Customs & Trade Law',
-    text: 'Customs crimes, tax evasion and smuggling matters, drawing on a career that began inside Dubai Customs’ own Cases Department.',
-    icon: <CustomsIcon />,
-  },
-  {
-    title: 'Insurance Law',
-    text: 'Insurance risk and regulatory matters, informed by participation in international insurance-practice review conferences.',
-    icon: <InsuranceIcon />,
-  },
-  {
-    title: 'Court Representation & Litigation',
-    text: 'Representation before the Supreme Court and all courts of the UAE, across civil, commercial and criminal matters.',
-    icon: <CourtIcon />,
-  },
-]
-
 function PracticeTile({
   index,
   number,
   title,
   text,
   icon,
+  slug,
   inView,
 }: {
   index: number
@@ -121,9 +45,10 @@ function PracticeTile({
   title: string
   text: string
   icon: ReactNode
+  slug: string
   inView: boolean
 }) {
-  const cardRef = useRef<HTMLButtonElement>(null)
+  const cardRef = useRef<HTMLAnchorElement>(null)
   const [hovering, setHovering] = useState(false)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
 
@@ -133,7 +58,7 @@ function PracticeTile({
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const onPointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+  const onPointerMove = (e: React.PointerEvent<HTMLAnchorElement>) => {
     if (!finePointer || reducedMotion || !cardRef.current) return
     const rect = cardRef.current.getBoundingClientRect()
     const px = (e.clientX - rect.left) / rect.width - 0.5
@@ -146,9 +71,9 @@ function PracticeTile({
     : 'translateY(0) rotateX(0) rotateY(0) scale(1)'
 
   return (
-    <button
+    <Link
       ref={cardRef}
-      type="button"
+      to={`/services/${slug}`}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => {
         setHovering(false)
@@ -217,7 +142,7 @@ function PracticeTile({
       >
         &rarr;
       </span>
-    </button>
+    </Link>
   )
 }
 
@@ -302,14 +227,15 @@ export function PracticeAreas() {
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 md:mt-16">
-          {areas.map((area, index) => (
+          {services.map((service, index) => (
             <PracticeTile
-              key={area.title}
+              key={service.slug}
               index={index}
               number={String(index + 1).padStart(2, '0')}
-              title={area.title}
-              text={area.text}
-              icon={area.icon}
+              title={service.title}
+              text={service.summary}
+              icon={service.icon}
+              slug={service.slug}
               inView={inView}
             />
           ))}
@@ -319,7 +245,7 @@ export function PracticeAreas() {
             className="relative flex flex-col justify-between overflow-hidden border p-7 md:p-8"
             style={{
               opacity: inView ? 1 : 0,
-              transitionDelay: `${areas.length * 90}ms`,
+              transitionDelay: `${services.length * 90}ms`,
               transition: 'opacity 600ms ease-out, transform 600ms ease-out',
               transform: inView ? 'translateY(0) scale(1)' : 'translateY(26px) scale(0.985)',
               backgroundColor: 'rgba(255,253,248,0.4)',
