@@ -1,31 +1,56 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Inter Tight', 'Inter', 'Noto Sans Arabic', sans-serif;
-  --font-sans: 'Inter', 'Noto Sans Arabic', sans-serif;
+  --font-display: 'Playfair Display', 'Noto Sans Arabic', 'Times New Roman', serif;
+  --font-sans: 'EB Garamond', 'Noto Sans Arabic', 'Times New Roman', serif;
 
-  --color-ink: #000000;
-  --color-paper: #ffffff;
-  --color-gold: #ffc000;
-  --color-gold-dark: #917300;
-  --color-surface-1: #181818;
-  --color-surface-2: #202020;
-  --color-hairline: #202020;
+  /* Hero-scoped editorial pairing (header + hero only, per that redesign's
+     brief) — deliberately not swapped into --font-display/--font-sans above,
+     since those are used site-wide and every other section must stay on the
+     existing Playfair/EB Garamond system. */
+  --font-hero-display: 'Cormorant Garamond', 'Noto Sans Arabic', 'Times New Roman', serif;
+  --font-hero-sans: 'Manrope', 'Noto Sans Arabic', sans-serif;
+
+  /* HSS light theme (bright warm-white + ivory + pale architectural blue,
+     deep navy for typography, restrained gold accent). `ink`/`paper`/
+     `hairline` keep their original semantic roles from the black+gold
+     system — ink = strong dark surface, paper = primary foreground,
+     hairline = default section divider — but now resolve to deep navy /
+     navy / pale blue-gray instead of black / white / dark gray, so every
+     component already written against these three names converts
+     automatically. Only the sections that stay genuinely dark (the closing
+     consultation CTA, footer, mobile menu) opt back into literal white text
+     instead of `text-paper`, since that token is navy now. */
+  --color-ink: #0a1f2d;
+  --color-paper: #102a3a;
+  --color-gold: #cea344;
+  --color-gold-dark: #8a6a24;
+  --color-hairline: rgba(16, 42, 58, 0.12);
+
+  --color-ivory: #faf9f6;
+  --color-warm-white: #f7f5f0;
+  --color-light-blue: #eef5f8;
+  --color-blue-surface: #e5f0f5;
+  --color-blue-border: #c9dce5;
+  --color-navy: #102a3a;
+  --color-deep-navy: #0a1f2d;
+  --color-slate: #536773;
+  --color-muted: #71828b;
 
   --breakpoint-xs: 375px;
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
-  background: var(--color-ink);
+  background: var(--color-warm-white);
 }
 
 body {
   margin: 0;
-  background: var(--color-ink);
+  background: var(--color-warm-white);
   color: var(--color-paper);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -43,7 +68,7 @@ body {
 
 ::selection {
   background: var(--color-gold);
-  color: var(--color-ink);
+  color: var(--color-paper);
 }
 
 /* Visible, deliberate focus states — no invisible :focus-visible-only outlines removed */
@@ -75,17 +100,6 @@ button:focus-visible {
   to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@keyframes media-reveal {
-  from {
-    opacity: 0;
-    clip-path: inset(0 0 0 12%);
-  }
-  to {
-    opacity: 1;
-    clip-path: inset(0 0 0 0%);
   }
 }
 

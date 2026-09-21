@@ -18,15 +18,23 @@ export function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-40 h-[76px] transition-colors duration-500 md:h-[88px] ${
-          scrolled ? 'border-b border-hairline bg-ink/94 backdrop-blur-[2px]' : 'border-b border-transparent bg-transparent'
+          scrolled
+            ? 'border-b border-hairline bg-warm-white/92 backdrop-blur-[2px]'
+            : 'border-b border-transparent bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 md:px-10">
-          {/* Left — wordmark */}
-          <a href="#top" className="flex flex-col leading-[1.05] text-paper" aria-label="HSS Advocates & Legal Consultants — home">
-            <span className="font-display text-lg font-medium tracking-[0.08em] md:text-xl">HSS</span>
-            <span className="font-display text-[10px] font-medium tracking-[0.22em] text-paper/60 md:text-[11px]">
-              ADVOCATES
+          {/* Left — logo */}
+          <a
+            href="#top"
+            className="flex items-center gap-2.5"
+            aria-label="HSS Advocates & Legal Consultants — home"
+          >
+            <img src="/brand/hss-logo-icon.png" alt="" className="h-8 w-auto md:h-10" />
+            <span className="font-hero-sans text-[11px] font-medium uppercase leading-tight tracking-[0.1em] text-paper/80 md:text-xs">
+              Hashim Salem Saif
+              <br />
+              Advocates &amp; Legal Consultants
             </span>
           </a>
 
@@ -36,7 +44,7 @@ export function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="group relative text-[11px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
+                className="group relative font-hero-sans text-[12px] font-medium uppercase tracking-[0.14em] text-paper/85 transition-opacity duration-200 hover:opacity-70"
               >
                 {link.label}
                 <span className="absolute -bottom-2 left-0 h-px w-0 bg-gold transition-all duration-200 group-hover:w-full" />
@@ -46,7 +54,7 @@ export function Header() {
 
           {/* Right */}
           <div className="flex items-center gap-5 md:gap-7">
-            <div className="hidden items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-paper/85 sm:flex">
+            <div className="hidden items-center gap-2 font-hero-sans text-[11px] font-medium uppercase tracking-[0.14em] text-paper/85 sm:flex">
               <button type="button" className="text-paper transition-opacity hover:opacity-70">
                 EN
               </button>
@@ -56,7 +64,11 @@ export function Header() {
               </button>
             </div>
 
-            <PrimaryButton href="#consultation" className="hidden xl:inline-flex">
+            <PrimaryButton
+              href="#consultation"
+              className="hidden font-hero-sans xl:inline-flex"
+              style={{ height: '44px', paddingLeft: '22px', paddingRight: '22px', fontSize: '11px' }}
+            >
               Request Consultation
             </PrimaryButton>
 
@@ -67,7 +79,7 @@ export function Header() {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label="Open menu"
-              className="flex h-10 w-10 items-center justify-center text-paper xl:hidden"
+              className="flex h-10 w-10 items-center justify-center text-paper transition-opacity duration-200 hover:opacity-70 xl:hidden"
             >
               <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
                 <path d="M0 1H22" stroke="currentColor" strokeWidth="1.5" />
